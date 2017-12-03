@@ -1,0 +1,174 @@
+html {
+  background: url() no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  margin:0;
+  padding:0;
+
+}
+canvas {
+  margin:auto;
+}
+
+body {
+  font-family: 'PT Mono', monospace;
+  color: #000000;
+  padding: 20px;
+  font-size: 12pt;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.section {
+  margin:2em 0 2em 0;
+}
+
+.title {
+  font-size:18pt;
+  color: #0000FF;
+  padding:0.2em;
+  text-decoration:none;
+  font-weight:bold;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -moz-transition: background-color 0.5s ease-in-out;
+  -o-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+
+}
+
+.visible .title{
+  color:#AFAFAF;
+}
+
+.title:hover, a:hover{
+  background-color: #0000FF;
+  background-size: 10px 10px;
+  color:#fff;
+}
+
+a {
+  text-decoration:none;
+  color: #0000FF;
+}
+
+
+h2{
+  font-size:12pt;
+  padding-left:1.5em;
+}
+
+p {
+  margin-left:2.5em;
+}
+
+ .hidden p {
+  display:none;
+}
+
+.visible p {
+  display:block;
+}
+
+.hidden h2 {
+ display:none;
+}
+
+.visible h2 {
+ display:block;
+}
+
+#footer {
+  bottom: 5%;
+}
+
+#footer a {
+  color: #AFAFAF;
+}
+
+#footer a:hover {
+  color: #fff;
+}
+
+#footer li {
+  color: #ADADAD;;
+  font-size: 10pt;
+  font-weight: bold;
+  padding: 10px;
+
+}
+
+.footer-right {
+  right: 5%;
+  text-align: right;
+  display: inline;
+  position: absolute;
+}
+
+.footer-center {
+  left: 30%;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-left {
+  left: 5%;
+  text-align: left;
+  display: inline;
+  position: absolute;
+}
+
+#footer li:after {
+  font-family: FontAwesome;
+  opacity: 0;
+  color: #0000FF;
+  font-size: 12pt;
+  font-weight: bold;
+  display: inline-block;
+  position: relative!important;
+  margin-bottom: 20px;
+  top: -20px;
+  left: -75%;
+  transition: opacity 0.5s ease-in-out;
+  transform: translateY(5px);
+  transition: all 0.5s ease-out;
+}
+
+#footer li:hover:after {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.icon-twitter:after {
+  content: "\f099";
+  width: 0px;
+}
+
+.icon-email:after {
+  content: "\f0e0";
+  width: 0px;
+}
+
+.icon-linkedin:after {
+  content: "\f0e1";
+  width: 0px;
+}
+
+.icon-medium:after {
+  content: "\f23a";
+  width: 0px;
+}
+
+.icon-github:after {
+  content: "\f09b";
+  width: 0px;
+}
+
+.icon-pdf:after {
+  content: "\f15b";
+  width: 0px;
+}
