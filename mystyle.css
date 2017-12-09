@@ -4,13 +4,22 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height:100%;
 }
 
 body {
   margin:0;
   padding:0;
-
+  display: flex;
+  flex-direction: column;
+  height:100%;
 }
+#main_container{
+  flex: 1 0 auto;
+  margin: 5%;
+}
+
+
 canvas {
   margin:auto;
 }
@@ -18,34 +27,32 @@ canvas {
 body {
   font-family: 'PT Mono', monospace;
   color: #000000;
-  padding: 20px;
   font-size: 12pt;
   list-style: none;
   -webkit-font-smoothing: antialiased;
 }
 
-.section {
-  margin:2em 0 2em 0;
+.section_content {
+
+  margin: 5%;
+
 }
 
-.title {
+.section_title {
   font-size:18pt;
   color: #0000FF;
   padding:0.2em;
   text-decoration:none;
   font-weight:bold;
-  -webkit-transition: background-color 0.5s ease-in-out;
-  -moz-transition: background-color 0.5s ease-in-out;
-  -o-transition: background-color 0.5s ease-in-out;
-  transition: background-color 0.5s ease-in-out;
-
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
 }
 
-.visible .title{
-  color:#AFAFAF;
-}
 
-.title:hover, a:hover{
+
+.section_title:hover, a:hover{
   background-color: #0000FF;
   background-size: 10px 10px;
   color:#fff;
@@ -57,33 +64,34 @@ a {
 }
 
 
-h2{
+.project_title{
   font-size:12pt;
-  padding-left:1.5em;
+  border-bottom: 6px solid #0000FF;
+  padding:0.2em;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
-p {
-  margin-left:2.5em;
+.project_title:hover{
+  margin-left: 10px
 }
 
- .hidden p {
-  display:none;
+.section_content, .section_project {
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+  margin: 2%;
 }
 
-.visible p {
-  display:block;
-}
-
-.hidden h2 {
- display:none;
-}
-
-.visible h2 {
- display:block;
+ .hidden {
+   max-height: 0;
+   overflow: hidden;
 }
 
 #footer {
-  bottom: 5%;
+  height: 100px;
+  margin-left: 5%;
 }
 
 #footer a {
@@ -103,23 +111,20 @@ p {
 }
 
 .footer-right {
-  right: 5%;
   text-align: right;
-  display: inline;
-  position: absolute;
+  display: inline-block;
 }
 
 .footer-center {
-  left: 30%;
+  margin: auto;
+  text-align: center;
   display: inline-block;
-  position: relative;
 }
 
 .footer-left {
-  left: 5%;
   text-align: left;
-  display: inline;
-  position: absolute;
+  display: inline-block;
+
 }
 
 #footer li:after {

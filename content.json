@@ -1,24 +1,37 @@
 {
   "sections": [{
-      "section_title": "/ Hello",
+      "section_title": "Hello",
       "section_desc": "I'm Damiano <a href=\"#\" id=\"gui\" alt=\"[yes, that's my actual last name]\">Gui</a>, I'm a UX/UI designer and creative coder.",
       "projects":""
     },
     {
-      "section_title": "/ About me",
+      "section_title": "About me",
       "section_desc": "Studied at <a alt=\"[modern literature]\" href=\"#\">UNIPD</a>, <a alt=\"[interaction design]\" href=\"#\">IUAV</a> and <a alt=\"[data visualization]\" href=\"#\">MIT</a>.<br>Finalist at <a alt=\"[2014]\" href=\"http://awards.ixda.org/entry/2014/terrarium/\">IXDA Interaction Awards</a> and <a alt=\"[2014]\" href=\"http://www.iuav.it/NEWS---SAL/buone-noti/buone-noti/luckystrike.doc_cvt.htm\">Lucky Strike Designer Award</a>. Nominated <a alt=\"[2013]\" href=\"http://old.innovatorsunder35.com/innovator/damiano-gui\">MIT Innovator under 35</a>. Founded <a alt=\"[2013 - 2015]\" href=\"http://www.mapnaut.com/\">Hic Locative Media</a>. Currently interaction designer at <a alt=\"[2017 - currently]\" href=\"http://www.enerbrain.com/\">Enerbrain</a> and <a alt=\"[2017 - currently]\" href=\"http://www.planetidea.it/\">Planet Idea</a>, previously <a alt=\"[2015 - 2017]\" href=\"http://www.makrshakr.com\">Makr Shakr</a> and <a alt=\"[2015 - 2017]\" href=\"http://www.carloratti.com\">Carlorattiassociati</a>. Indie <a alt=\"[Quantum Lake]\" href=\"https://itunes.apple.com/us/app/quantum-lake/id1116513973\">game developer</a>.",
       "projects":""
     },
     {
-      "section_title": "/ Projects",
-      "section_desc": "Here are some of my latest projects",
+      "section_title": "Projects",
+      "section_desc": "Here are some of the things I've been working on",
       "projects": [{
-          "title": "makrshakr",
-          "desc": "a robotic bar"
+          "title": "Deep Dreamed satellite images",
+          "desc": "Invisible Cities – an experiment in neural networks."
+        },{
+            "title": "Modular IoT sofas",
+            "desc": "Lift-Bit – The world’s first digitally-transformable sofa."
+          },
+        {
+          "title": "Cocktail-making robots",
+          "desc": "Makr Shakr – spin-off project of Carlorattiassociati."
+        },{
+          "title": "Little arcade games",
+          "desc": "Quantum Lake – for iOS and Android."
         },
         {
-          "title": "quantum lake",
-          "desc": "a mobile game"
+          "title": "Digital patterns of physical pixels",
+          "desc": "Free Pixel – an interactive installation for Artemide"
+        },{
+          "title": "Subjective generative geographies",
+          "desc": "Terrarium – living maps"
         }
       ]
     }

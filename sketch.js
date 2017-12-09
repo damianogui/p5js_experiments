@@ -4,6 +4,8 @@ var amiover;
 var myAlt;
 var html;
 
+var drawDistance = 1;
+
 
 function preload() {
   content = loadJSON("content.json");
@@ -19,64 +21,86 @@ function setup() {
 
   for (var i = 0; i < content.sections.length; i++) {
 
-    var div = createElement('div');
-    div.class(content.sections[i].section_title);
+// create sections
+
+    var section_content = createElement('div');
+//    div.addClass(content.sections[i].section_title);
+//    div.addClass('hidden');
+    section_content.addClass('section_content');
+    section_content.addClass('hidden');
+//    div.attribute('showing_content','false');
+
+
     var section_title = createElement('a', content.sections[i].section_title);
     section_title.attribute("href","#");
-    section_title.addClass('title');
+    section_title.addClass('section_title');
+
+
     var section_desc = createElement('p', content.sections[i].section_desc);
+//    section_desc.addClass(content.sections[i].section_title);
 
-    main_container.child(div);
-    div.attribute("showing_content","false");
-    div.addClass('section');
-    div.addClass('hidden');
+    section_desc.addClass('section_desc');
 
-    div.mousePressed(show_hide);
-    section_title.mouseOver(overTitle);
-    section_title.mouseOut(outTitle);
+    main_container.child(section_title);
+    main_container.child(section_content);
+    section_content.child(section_desc);
 
-    div.child(section_title);
-    div.child(section_desc);
+
+// create projects
 
     for (var j = 0; j < content.sections[i].projects.length; j++) {
-      var project_title = createElement('h2', content.sections[i].projects[j].title);
-      var project_desc = createElement('p', content.sections[i].projects[j].desc);
-      div.child(project_title);
-      project_title.mouseOver(overProject);
-      div.child(project_desc);
-    }
 
-  }
+      var section_project = createElement('div');
+      section_project.addClass('section_project');
+      section_project.addClass('hidden');
+
+      var project_title = createElement('a', content.sections[i].projects[j].title);
+      project_title.addClass('project_title');
+      project_title.attribute("href","#");
+
+      var project_desc = createElement('p', content.sections[i].projects[j].desc);
+      project_desc.addClass('project_desc');
+
+      section_content.child(project_title);
+      section_content.child(section_project);
+      section_project.child(project_desc);
+    }
+}
+
   var a = selectAll('a');
   for (var i = 0; i<a.length;i++){
     a[i].mouseOver(showAlt);
   }
 
-}
-function overTitle(){
-  amiover = true;
-}
-function outTitle(){
-  amiover = false;
-}
+// create section accordions
 
-function overProject(){
-  //html.style('background-image','url("images/planet1.png")');
-}
+  var section_accordions = document.getElementsByClassName("section_title");
+  var project_accordions = document.getElementsByClassName("project_title");
+  for (var i = 0; i < section_accordions.length; i++) {
 
-function show_hide(){
+    section_accordions[i].onclick = function() {
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
 
-  if (this.attribute("showing_content") == "false"){
-  this.removeClass('hidden');
-  this.addClass('visible');
-  this.attribute("showing_content","true");
+      // create project accordions
 
-} else if (amiover == true) {
-  this.removeClass('visible');
-  this.addClass('hidden');
-  this.attribute("showing_content","false");
-}
-
+      for (var f = 0; f < project_accordions.length; f++) {
+        project_accordions[f].onclick = function() {
+          var project = this.nextElementSibling;
+          if (project.style.maxHeight){
+            project.style.maxHeight = null;
+          } else {
+            project.style.maxHeight = project.scrollHeight + "px";
+            content.style.maxHeight = project.scrollHeight + content.scrollHeight + "px";;
+          }
+        }
+      }
+    }
+  }
 }
 
 function showAlt (){
@@ -91,10 +115,8 @@ function windowResized(){
   resizeCanvas(windowWidth,windowHeight);
 }
 
-
 function draw() {
   background(255,10);
-
   stroke(0,0,255);
   strokeWeight(2);
   line(pmouseX,pmouseY,mouseX,mouseY);
