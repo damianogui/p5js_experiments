@@ -129,10 +129,7 @@ function mousePressed(){
   //rect(0,0,windowWidth,windowHeight);
 }
 
-var fixedMap = document.getElementById('map');
-
-fixedMap.addEventListener('touchmove', function(e) {
-
-        e.preventDefault();
-
-}, false);
+function touchMoved() {
+  // prevent default
+  return false;
+}
