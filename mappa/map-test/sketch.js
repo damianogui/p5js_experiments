@@ -128,3 +128,11 @@ function mousePressed(){
   }
   //rect(0,0,windowWidth,windowHeight);
 }
+
+var map = document.getElementById('fixed');
+
+map.addEventListener('touchmove', function(e) {
+
+        e.preventDefault();
+
+}, false);
