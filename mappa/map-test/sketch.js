@@ -122,7 +122,7 @@ function positionChanged(position){
 
 function mousePressed(){
   if (pointSelected == true){
-    var modal = createP("ciao!");
+    var modal = createP("hey");
     modal.position(0,0);
 
   }
