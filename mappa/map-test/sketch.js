@@ -122,16 +122,16 @@ function positionChanged(position){
 
 function mousePressed(){
   if (pointSelected == true){
-    var modal = createP("hey");
+    var modal = createP("prevent default works?");
     modal.position(0,0);
 
   }
   //rect(0,0,windowWidth,windowHeight);
 }
 
-var map = document.getElementById('fixed');
+var fixedMap = document.getElementById('map');
 
-map.addEventListener('touchmove', function(e) {
+fixedMap.addEventListener('touchmove', function(e) {
 
         e.preventDefault();
 
