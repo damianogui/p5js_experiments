@@ -7,7 +7,7 @@ var options = {
   lng: 7.673345599999999,
   lat: 45.074128599999995,
   zoom: 20,
-  style: 'mapbox://styles/mapbox/traffic-night-v2',
+  style: 'mapbox://styles/mapbox/light-v9',
   pitch: 50,
 };
 
@@ -62,6 +62,8 @@ function draw() {
       ellipse(pos.x, pos.y, 50,30);
     }
 
+
+
   }
 
 
@@ -69,9 +71,47 @@ function draw() {
   if (myMap.map != null && addedControl == false){
     myMap.map.addControl(new mapboxgl.NavigationControl(),'bottom-right');
     addedControl = true;
-  }
-}
 
+    myMap.map.on('load', function() {
+        // Insert the layer beneath any symbol layer.
+        var layers = myMap.map.getStyle().layers;
+
+        var labelLayerId;
+        for (var i = 0; i < layers.length; i++) {
+            if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                labelLayerId = layers[i].id;
+                break;
+            }
+        }
+
+        myMap.map.addLayer({
+            'id': '3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+                'fill-extrusion-color': '#aaa',
+
+                // use an 'interpolate' expression to add a smooth transition effect to the
+                // buildings as the user zooms in
+                'fill-extrusion-height': [
+                    "interpolate", ["linear"], ["zoom"],
+                    15, 0,
+                    15.05, ["get", "height"]
+                ],
+                'fill-extrusion-base': [
+                    "interpolate", ["linear"], ["zoom"],
+                    15, 0,
+                    15.05, ["get", "min_height"]
+                ],
+                'fill-extrusion-opacity': .6
+            }
+        }, labelLayerId);
+    });
+}
+}
 function positionChanged(position){
     print("lat: " + position.latitude);
     myLat = position.latitude;
