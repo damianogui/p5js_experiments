@@ -29,7 +29,7 @@ function setup() {
 
   watchPosition(positionChanged);
 
-  canvas = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, windowHeight-100);
   canvas.parent('map');
 
   // Create a tile map and overlay the canvas on top.
@@ -124,6 +124,11 @@ function mousePressed(){
   if (pointSelected == true){
     var modal = createP("parented map");
     modal.position(0,0);
+    myMap.map.flyTo({
+        center: [
+            -74.50 + (Math.random() - 0.5) * 10,
+            40 + (Math.random() - 0.5) * 10]
+    });
 
   }
   //rect(0,0,windowWidth,windowHeight);
