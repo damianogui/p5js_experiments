@@ -30,7 +30,7 @@ function setup() {
   watchPosition(positionChanged);
 
   canvas = createCanvas(windowWidth, windowHeight);
-
+  canvas.parent('map');
 
   // Create a tile map and overlay the canvas on top.
   myMap = mappa.tileMap(options);
@@ -122,7 +122,7 @@ function positionChanged(position){
 
 function mousePressed(){
   if (pointSelected == true){
-    var modal = createP("prevent default works?");
+    var modal = createP("parented map");
     modal.position(0,0);
 
   }
