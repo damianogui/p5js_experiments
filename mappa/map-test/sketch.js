@@ -30,6 +30,7 @@ function setup() {
   watchPosition(positionChanged);
 
   canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('map');
 
   // Create a tile map and overlay the canvas on top.
   myMap = mappa.tileMap(options);
