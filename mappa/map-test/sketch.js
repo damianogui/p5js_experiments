@@ -29,7 +29,7 @@ function setup() {
 
   watchPosition(positionChanged);
 
-  canvas = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth-50, windowHeight-50);
   canvas.parent('map');
 
   // Create a tile map and overlay the canvas on top.
